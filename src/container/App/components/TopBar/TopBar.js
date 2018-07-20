@@ -36,7 +36,7 @@ class TopBar extends Component {
                 LetGoShop
               </Typography>
             </Link>
-            <Link className={classes['link-color']} to="/login">
+            <Link className={classes['link-color']} to="/register">
               <Button color="inherit">註冊 | 登入</Button>
             </Link>
           </Toolbar>

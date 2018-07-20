@@ -31,13 +31,13 @@ const ProductCard = props => {
           {props.name}
           <span> $ {props.price} NT</span>
         </Typography>
-        <Typography component="p">
+        <Typography component="h3">
           {props.description}
           <br />
           <br />
           <div>
-            {props.tags.map(tag => {
-              return <span>#{tag} </span>;
+            {props.tags.map((tag, index) => {
+              return <span key={`${tag}-${index}`}>#{tag} </span>;
             })}
           </div>
         </Typography>

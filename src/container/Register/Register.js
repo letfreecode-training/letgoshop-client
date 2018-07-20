@@ -27,7 +27,7 @@ const styles = theme => ({
   }
 });
 
-class Login extends Component {
+class Register extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -76,4 +76,4 @@ class Login extends Component {
   }
 }
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Register);
