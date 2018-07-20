@@ -10,17 +10,20 @@ import Register from './container/Register/Register';
 import registerReducer from './store/reducers/register';
 
 /** redux instance */
+import { Provider } from 'react-redux';
 import store from './store';
 
 const initStore = store({ register: registerReducer });
 
 ReactDOM.render(
   <Router>
-    <div>
-      <App />
-      <Route exact path="/" component={Wrapper} />
-      <Route exact path="/register" component={Register} />
-    </div>
+    <Provider store={initStore}>
+      <div>
+        <App />
+        <Route exact path="/" component={Wrapper} />
+        <Route exact path="/register" component={Register} />
+      </div>
+    </Provider>
   </Router>,
   document.getElementById('root')
 );
