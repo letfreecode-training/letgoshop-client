@@ -66,7 +66,7 @@ class Login extends Component {
                 color="primary"
                 className={classes.button}
               >
-                Primary
+                確認註冊
               </Button>
             </div>
           </Paper>
