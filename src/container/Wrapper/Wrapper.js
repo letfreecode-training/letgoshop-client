@@ -34,7 +34,6 @@ class Wrapper extends Component {
       }
     }).then(response => {
       const data = response.data.data;
-      console.log(data);
       this.setState(_ => ({
         products: data.products
       }));

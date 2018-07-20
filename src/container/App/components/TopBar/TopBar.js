@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -12,7 +13,15 @@ const styles = {
   },
   flex: {
     flexGrow: 1
+  },
+  'link-color': {
+    color: '#000'
   }
+};
+
+const barTitleStyle = {
+  color: '#000',
+  textDecorationLine: 'none'
 };
 
 class TopBar extends Component {
@@ -22,14 +31,14 @@ class TopBar extends Component {
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Toolbar>
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
-              LetGoShop
-            </Typography>
-            <Button color="inherit">註冊 | 登入</Button>
+            <Link style={barTitleStyle} className={classes.flex} to="/">
+              <Typography variant="title" color="inherit">
+                LetGoShop
+              </Typography>
+            </Link>
+            <Link className={classes['link-color']} to="/login">
+              <Button color="inherit">註冊 | 登入</Button>
+            </Link>
           </Toolbar>
         </AppBar>
       </div>
