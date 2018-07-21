@@ -3,6 +3,7 @@ import axios from 'axios';
 export const userLogin = (email, password) => dispatch => {
   axios({
     method: 'POST',
+    withCredentials: true,
     url: 'http://localhost:4001/api/login',
     data: {
       email,
