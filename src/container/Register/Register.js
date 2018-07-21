@@ -48,7 +48,9 @@ class Register extends Component {
       registerUser,
       changePassword,
       changeName,
-      changeEmail
+      changeEmail,
+
+      history
     } = this.props;
     return (
       <div className={classes.root}>
@@ -58,9 +60,9 @@ class Register extends Component {
             <div>
               {registerStatus.success
                 ? '註冊成功'
-                : registerStatus.error &&
-                  registerStatus.error.errors.map((err, index) => {
-                    return <div key={index}>{err}</div>;
+                : registerStatus.errors &&
+                  registerStatus.errors.map((err, index) => {
+                    return <p key={index}>{JSON.stringify(err)}</p>;
                   })}
             </div>
             <TextField
@@ -72,7 +74,7 @@ class Register extends Component {
               margin="normal"
             />
             <TextField
-              id="name"
+              id="email"
               label="信箱"
               placeholder="信箱為您的登入帳號"
               className={classes.textField}
@@ -81,7 +83,7 @@ class Register extends Component {
               margin="normal"
             />
             <TextField
-              id="name"
+              id="password"
               label="密碼"
               type="password"
               className={classes.textField}
@@ -103,6 +105,14 @@ class Register extends Component {
                 }}
               >
                 確認註冊
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                onClick={() => history.push('/login')}
+              >
+                來去登入
               </Button>
             </div>
           </Paper>

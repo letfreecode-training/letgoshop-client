@@ -1,7 +1,7 @@
 const initialState = {
   registerStatus: {
     success: false,
-    error: undefined
+    errors: undefined
   },
   name: '',
   email: '',
@@ -26,7 +26,7 @@ const registerReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         registerStatus: {
           success: true,
-          error: undefined
+          errors: undefined
         },
         email: '',
         name: '',
@@ -36,7 +36,7 @@ const registerReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         registerStatus: {
           success: false,
-          error: action.payload.errors
+          errors: action.payload.errors
         }
       });
     default:

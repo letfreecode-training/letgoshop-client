@@ -27,10 +27,11 @@ export const registerUser = ({
         payload: {}
       });
     } else {
+      console.log(data);
       dispatch({
         type: 'REGISTER_USER_FAIL',
         payload: {
-          errors: data.error
+          errors: data.error.message
         }
       });
     }
