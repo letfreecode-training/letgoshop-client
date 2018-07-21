@@ -55,7 +55,14 @@ class Register extends Component {
         <div className={classes.wrapper}>
           <Paper className={classes.paper}>
             <div>註冊</div>
-            <div>{registerStatus.success ? '註冊成功' : ''}</div>
+            <div>
+              {registerStatus.success
+                ? '註冊成功'
+                : registerStatus.error &&
+                  registerStatus.error.errors.map((err, index) => {
+                    return <div key={index}>{err}</div>;
+                  })}
+            </div>
             <TextField
               id="name"
               label="姓名"

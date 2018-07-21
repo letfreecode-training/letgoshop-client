@@ -32,6 +32,13 @@ const registerReducer = (state = initialState, action) => {
         name: '',
         password: ''
       });
+    case 'REGISTER_USER_FAIL':
+      return Object.assign({}, state, {
+        registerStatus: {
+          success: false,
+          error: action.payload.errors
+        }
+      });
     default:
       return state;
   }

@@ -24,10 +24,13 @@ export const registerUser = ({
     if (data.statusCode === 200 && !data.error) {
       dispatch({
         type: 'REGISTER_USER_SUCCESS',
+        payload: {}
+      });
+    } else {
+      dispatch({
+        type: 'REGISTER_USER_FAIL',
         payload: {
-          name,
-          email,
-          password
+          errors: data.error
         }
       });
     }
