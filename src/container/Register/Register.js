@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 /** redux action */
 import {
+  registerUser,
   changePassword,
   changeEmail,
   changeName
@@ -41,9 +42,10 @@ class Register extends Component {
       classes,
 
       // redux register state
-      register: { name, email, password },
+      register: { name, email, password, registerStatus },
 
       // redux action dispatch
+      registerUser,
       changePassword,
       changeName,
       changeEmail
@@ -53,6 +55,7 @@ class Register extends Component {
         <div className={classes.wrapper}>
           <Paper className={classes.paper}>
             <div>註冊</div>
+            <div>{registerStatus.success ? '註冊成功' : ''}</div>
             <TextField
               id="name"
               label="姓名"
@@ -84,7 +87,13 @@ class Register extends Component {
                 variant="contained"
                 color="primary"
                 className={classes.button}
-                onClick={() => {}}
+                onClick={() => {
+                  registerUser({
+                    name,
+                    email,
+                    password
+                  });
+                }}
               >
                 確認註冊
               </Button>
@@ -103,6 +112,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+  registerUser,
   changePassword,
   changeName,
   changeEmail

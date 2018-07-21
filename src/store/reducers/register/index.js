@@ -1,4 +1,8 @@
 const initialState = {
+  registerStatus: {
+    success: false,
+    error: undefined
+  },
   name: '',
   email: '',
   password: ''
@@ -17,6 +21,16 @@ const registerReducer = (state = initialState, action) => {
     case 'CHANGE_EMAIL':
       return Object.assign({}, state, {
         email: action.payload
+      });
+    case 'REGISTER_USER_SUCCESS':
+      return Object.assign({}, state, {
+        registerStatus: {
+          success: true,
+          error: undefined
+        },
+        email: '',
+        name: '',
+        password: ''
       });
     default:
       return state;
