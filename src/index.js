@@ -17,7 +17,20 @@ import userReducer from './store/reducers/user';
 import { Provider } from 'react-redux';
 import store from './store';
 
+const checkUserStatus = window.userInfo;
 const initStore = store({ register: registerReducer, user: userReducer });
+
+if (checkUserStatus.payload && checkUserStatus.payload.isLogin) {
+  initStore.dispatch({
+    type: 'LOGIN_SUCCESS',
+    payload: {
+      userInfo: {
+        name: checkUserStatus.payload.userInfo.name,
+        email: checkUserStatus.payload.userInfo.email
+      }
+    }
+  });
+}
 
 ReactDOM.render(
   <Router>

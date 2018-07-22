@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Redirect } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -30,7 +31,7 @@ const styles = theme => ({
 });
 
 class Login extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       email: '',
@@ -42,8 +43,12 @@ class Login extends Component {
       classes,
 
       // redux actions
-      userLogin
+      userLogin,
+      user
     } = this.props;
+    if (user.isLogin) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className={classes.root}>
         <div className={classes.wrapper}>

@@ -28,7 +28,7 @@ class Wrapper extends Component {
   componentDidMount() {
     axios({
       method: 'POST',
-      url: 'http://localhost:4001',
+      url: 'http://localhost:4001/graphql',
       data: {
         query: '{ products { description title name price tags } } '
       }
